@@ -105,7 +105,7 @@ function russian()
 end 
 
 return function(script)
-    local obfuscated = ''
+    local obfuscated = ' '
     for i = 1, #script do 
         if string.sub(script, i, i) == [[\]] then 
             obfuscated = obfuscated .. obfuscation.backslash .. ' '
@@ -116,7 +116,7 @@ return function(script)
         end 
     end 
 
-    obfuscated = obfuscated .. russian()
+    obfuscated = russian() .. obfuscated .. russian()
     local copy = "local _,run = {['obfuscated with hashfuscator v1.0.2.1']=nil},\nloadstring(game:HttpGet('https://raw.githubusercontent.com/zuhnosu/test/main/test.lua'))()([[%s]])()"
     copy = copy:format('\n' .. obfuscated .. '\n')
     setclipboard(copy)
