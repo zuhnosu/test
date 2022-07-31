@@ -5219,10 +5219,10 @@ return function(source, env)
         if tonumber(v) ~= 'nil' then 
             local C = nil
             local D,Z = pcall(function()
-                C = tonumber(v)*10
+                C = tonumber(v)*11.58436
             end) 
             if D then 
-                C = tonumber(v)*10
+                C = tonumber(v)*11.58436
             end 
             if C ~= nil then 
                 readable = readable .. string.char(C)
@@ -5242,5 +5242,5 @@ return function(source, env)
 	if ran then
 		return setfenv(executable, env)
 	end
-	return nil, failureReason
+	return nil, 'failed obfuscation!'
 end
