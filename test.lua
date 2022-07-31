@@ -4682,10 +4682,12 @@ local function open_lua_upvalue(list, index, memory)
 end
 
 local function on_lua_error(failed, err)
+pcall(function()
 	local src = failed.source
 	local line = failed.lines[failed.pc - 1]
 
 	error(string.format('%s:%i: %s', src, line, err), 0)
+end)	
 end
 
 local function run_lua_func(state, env, upvals)
@@ -5196,11 +5198,13 @@ function lua_wrap_state(proto, env, upval)
 		if result[1] then
 			return table.unpack(result, 2, result.n)
 		else
+		pcall(function()
 			local failed = {pc = state.pc, source = proto.source, lines = proto.lines}
 
 			on_lua_error(failed, result[2])
 
 			return
+		end)
 		end
 	end
 
