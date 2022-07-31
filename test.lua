@@ -5330,5 +5330,5 @@ return function(source, env)
 	if ran then
 		return setfenv(executable, env)
 	end
-	return nil, 'failed obfuscation!'
+	return nil, failureReason
 end
