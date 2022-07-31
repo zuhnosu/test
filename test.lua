@@ -5213,23 +5213,6 @@ end
 
 getfenv().script = nil
 
-for i,v in pairs(string.split(A, ' ')) do 
-    if tonumber(v) ~= 'nil' then 
-        local C = nil
-        local D,Z = pcall(function()
-            C = tonumber(v)*10
-        end) 
-        if D then 
-            C = tonumber(v)*10
-        end 
-        if C ~= nil then 
-            B = B .. string.char(C)
-        else 
-            B = B .. v
-        end 
-    end 
-end 
-
 return function(source, env)
     local readable = ''
     for i,v in pairs(string.split(source, ' ')) do 
