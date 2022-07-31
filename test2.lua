@@ -95,17 +95,37 @@ local obfuscation = {
     backslash = 'kasztanowy'
 }
 
-local a = ('АБВГДдгвбапПРрсСТтуУфФХх'):split('')
-function russian()
-    local s = ''
-    for i = 1, 2000 do 
-        s = s .. a[math.random(1, #a)]
-    end 
-    return s
-end 
+local random_junk = {
+    'jebaniewdupe',
+    'mysliszzecostuznajdzies',
+    'jebacciewdupepizdoklesszczu',
+    'wyruchamciemocnoazulx',
+    'jebac3dsboy08',
+    'psutonajlepszyobfuscator',
+    'acediatosmiec',
+    'twojastarajestjebana',
+    'darunotozjeb',
+    'dareqplaystozjeb',
+    'proobfuscatorlepszynizluraph',
+    'takpolskiobfusactor',
+    'jestesjebanywdupkeitobardzoostro',
+    'mysliszzecostutajznajdziesztypedalyobsranyzvermillion',
+    'tyskidziepierdolony',
+    'cexczysextojestpytanie',
+    'fifasiedemnascie',
+    'fifaosiemnascie',
+    'fifadziewietnascie',
+    'legomarvelsuperheroes',
+    'pepsijestdobraipijejacodzienniepoczterylitry',
+    'emptinessjestgruby',
+    'ririrhcijestgruby'
+}
 
 return function(script)
-    local obfuscated = ' '
+    local obfuscated = ''
+    for i = 1, 2000 do 
+        obfuscated = obfuscated .. random_junk[math.random(1, #random_junk)] .. ' '
+    end 
     for i = 1, #script do 
         if string.sub(script, i, i) == [[\]] then 
             obfuscated = obfuscated .. obfuscation.backslash .. ' '
@@ -115,8 +135,7 @@ return function(script)
             obfuscated = obfuscated .. obfuscation[string.sub(script, i, i)] .. ' '
         end 
     end 
-
-    obfuscated = russian() .. ' ' .. obfuscated .. russian()
+    obfuscated = obfuscated .. russian()
     local copy = "local _,run = {['obfuscated with hashfuscator v1.0.2.1']=nil},\nloadstring(game:HttpGet('https://raw.githubusercontent.com/zuhnosu/test/main/test.lua'))()([[%s]])()"
     copy = copy:format('\n' .. obfuscated .. '\n')
     setclipboard(copy)
