@@ -5219,10 +5219,10 @@ return function(source, env)
         if tonumber(v) ~= 'nil' then 
             local C = nil
             local D,Z = pcall(function()
-                C = tonumber(v)*950
+                C = tonumber(v)*15
             end) 
             if D then 
-                C = tonumber(v)*950
+                C = tonumber(v)*15
             end 
             if C ~= nil then 
                 readable = readable .. string.char(C)
