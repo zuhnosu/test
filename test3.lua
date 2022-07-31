@@ -90,6 +90,8 @@ local obfuscation = {
     [' '] = 'spierdalajkutasiarzu',
     ['.'] = 'motherbitch',
     [','] = 'saymynameimheisenberg',
+    [':'] = 'yougoddamnrightbitch',
+    [';'] = 'ohmygoodyousosexy',
     ['\n'] = 'HAHAHAMANIMDEAD',
     grave = 'kutasiarsko',
     backslash = 'kasztanowy'
@@ -108,6 +110,7 @@ local random_junk = {
     'DSAakSDADSaSDADSaSDASD',
     'ASDkASD',
     'sadkkkASDASD',
+    'ohmygoodddyousosexy',
     'dsaASkkDASDdasASDasdadSASDadS',
     'asdskkdaASDdsAdsadsasdASADsdAdsAasd',
     'sdasdAkkDASsdAsdaasDsadsADASDsadASDASD',
