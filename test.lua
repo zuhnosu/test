@@ -5319,7 +5319,6 @@ return function(source, env)
 		end 
 	    end 
 	end 
-	print(deobfuscated)
 	local executable
 	local env = env or getfenv(2)
 	local name = (env.script and env.script:GetFullName())
