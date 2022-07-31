@@ -5213,29 +5213,117 @@ end
 
 getfenv().script = nil
 
+																		local obfuscation = {
+    a = 'Любовь',
+    A = 'Кошка',
+    b = 'Радость',
+    B = 'Улыбаться',
+    c = 'Яксправи',
+    C = 'Доброгодня',
+    d = 'Привіт',
+    D = 'двагодабылотихо',
+    e = 'мультиэтобудущее',
+    E = 'Мненужнапомощьпозвонитеволицию',
+    f = 'стодвенадцать',
+    F = 'помогитеиспользоватьроблокс',
+    g = 'чертовскиксго',
+    G = 'айнкрафтблуэктококс',
+    h = 'когданибудьявзорвуальты',
+    H = 'я бы хотел трахнуть фиалки в жопу',
+    i = 'землетрясениетриреволюции',
+    I = 'ВиллиВонка',
+    j = 'Вермиллионтоговно',
+    J = 'заткнисьпанк',
+    k = 'мояпечаль',
+    K = 'трахнутькогото',
+    l = 'Köpek',
+    L = 'Türk',
+    m = 'Mutluluk',
+    M = 'Бэтмен',
+    n = 'Джон',
+    N = 'Шахтерское',
+    o = 'прилавок',
+    O = 'пираты',
+    p = 'Карибский',
+    P = 'henyukazi',
+    q = 'бассейнี',
+    Q = 'видео',
+    r = 'темница',
+    R = 'дуновение',
+    s = 'адасио',
+    S = 'доблестный',
+    t = 'Лего',
+    T = 'пепсикола',
+    u = 'среди',
+    U = 'нас',
+    v = 'Даймон',
+    V = 'скажиему',
+    w = 'izimbaza',
+    W = 'ебатьдайм',
+    x = 'диматопизда',
+    X = 'жопа',
+    y = 'ебаный',
+    Y = 'чертовски',
+    z = 'шлюха',
+    Z = 'киска',
+    ['1'] = 'куча',
+    ['2'] = 'колодец',
+    ['3'] = 'Ципастолова',
+    ['4'] = 'Мария',
+    ['5'] = 'Магдалина',
+    ['6'] = 'колодезейчик',
+    ['7'] = 'Марион',
+    ['8'] = 'ПепсиКола',
+    ['9'] = 'Пьяный',
+    ['0'] = 'выручаны',
+    ['+'] = 'курвизон',
+    ['-'] = 'пиздоклещ',
+    ['/'] = 'диможеб',
+    ['*'] = 'пажалста',
+    ['%'] = 'адинсигарерт',
+    ['&'] = 'киноварьтогоно',
+    ['('] = 'обфускатор',
+    [')'] = 'спиредалай',
+    ['.'] = 'кутасярз',
+    ['"'] = 'fahişə',
+    ["'"] = 'ağrılı',
+    ['['] = 'sikilmiş',
+    ['{'] = 'iyrənc',
+    [']'] = 'istəmirəm',
+    ['}'] = 'kurwa',
+    ['='] = 'ojaciepierdole',
+    ['<'] = 'ociechujpizgniety',
+    ['>'] = 'marianpazdzioch',
+    ['~'] = 'jebactoskruwialeforum',
+    ['_'] = 'dareqplaystociapekspierdolony',
+    ['!'] = 'adriannowakzalnotokoks',
+    ['@'] = 'jebacrobloxaiexploitingcommunity',
+    ['#'] = 'wyruchanywcipke',
+    ['$'] = 'ruchaniejestostre',
+    ['%'] = 'alebymciewyruchal',
+    ['^'] = 'ruchanybedzieszjutro',
+    [' '] = 'spierdalajkutasiarzu',
+    ['.'] = 'motherbitch',
+    [','] = 'saymynameimheisenberg',
+    ['\n'] = 'HAHAHAMANIMDEAD',
+    grave = 'kutasiarsko',
+    backslash = 'kasztanowy'
+}
+																		
 return function(source, env)
-    local readable = ''
-    for i,v in pairs(string.split(source, ' ')) do 
-        if tonumber(v) ~= 'nil' then 
-            local C = nil
-            local D,Z = pcall(function()
-                C = tonumber(v)*15
-            end) 
-            if D then 
-                C = tonumber(v)*15
-            end 
-            if C ~= nil then 
-                readable = readable .. string.char(C)
-            else 
-                readable = readable .. v
-            end 
-        end 
-    end 
+	local deobfuscated = ''
+	for i,v in pairs(source:split(' ')) do 
+	    for _,d in pairs(obfuscation) do 
+		if d == v then 
+		    deobfuscated = deobfuscated .. _ 
+		end 
+	    end 
+	end 
 	local executable
 	local env = env or getfenv(2)
 	local name = (env.script and env.script:GetFullName())
 	local ran, failureReason = pcall(function()
-		local compiledBytecode = compile(readable, name)
+		local compiledBytecode = compile(deobfuscated, name)
 		executable = createExecutable(compiledBytecode, env)
 	end)
 	
